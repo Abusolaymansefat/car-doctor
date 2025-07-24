@@ -1,9 +1,11 @@
-import dbConnect from "@/lib/dbConnect";
+import dbConnect, { collectionNameObj } from "@/lib/dbConnect";
 import Image from "next/image";
+import Link from "next/link";
+import { FaArrowRight } from "react-icons/fa";
 import React from "react";
 
 export default async function ServicesSecton() {
-  const servicesCollection = dbConnect("test_services");
+  const servicesCollection = dbConnect(collectionNameObj.servicesCollection);
   const data = await servicesCollection.find({}).toArray();
 
   return (
@@ -20,8 +22,17 @@ export default async function ServicesSecton() {
             alt={item.title}
             className="rounded-md mb-3"
           />
-          <h2 className="text-xl font-semibold">{item.title}</h2>
-          <p className="text-gray-600 text-md font-medium">Price: ${item.price}</p>
+          <div className="flex justify-between items-center mt-5">
+            <div>
+            <h2 className="text-xl font-semibold">{item.title}</h2>
+          <p className="text-white text-md font-medium">Price: ${item.price}</p>
+          </div>
+          <div>
+            <Link href={`/services/${item._id}`} className="text-orange-500">
+             <FaArrowRight />
+            </Link>
+          </div>
+          </div>
         </div>
       ))}
     </div>
