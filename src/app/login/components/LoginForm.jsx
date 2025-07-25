@@ -4,6 +4,7 @@ import React from "react";
 import {signIn } from "next-auth/react"
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import SocialLogin from "./SocialLogin";
 // import SocialLogin from "./SocialLogin";
 
 export default function LoginForm() {
