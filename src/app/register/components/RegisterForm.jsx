@@ -4,7 +4,11 @@ import Link from "next/link";
 import { FaFacebookF, FaLinkedinIn, FaGoogle } from "react-icons/fa";
 import SocialLogin from "@/app/login/components/SocialLogin";
 import { registerUser } from "@/app/actions/auth/registerUser";
+
+
+
 export default function RegisterForm() {
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
