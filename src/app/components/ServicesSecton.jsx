@@ -2,11 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
 import React from "react";
-import dbConnect, { collectionNameObj } from "@/lib/dbConnect";
+import dbConnect, {  collectionNamesObj } from "@/lib/dbConnect";
 
 
 export default async function ServicesSecton() {
-  const servicesCollection = dbConnect(collectionNameObj.servicesCollection);
+  const servicesCollection = dbConnect(collectionNamesObj.servicesCollection);
   const data = await servicesCollection.find({}).toArray();
 
   return (
